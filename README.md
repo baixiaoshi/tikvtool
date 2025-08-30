@@ -14,6 +14,7 @@ TiKV Tool is an interactive command-line application for exploring and managing 
 - **CRUD Operations**: Support for Create, Read, Update, and Delete operations
 - **Copy to Clipboard**: Copy keys and values with one keystroke
 - **Multiple View Modes**: 
+  - Main mode for command selection
   - Search mode for finding keys
   - Detail mode for viewing key-value pairs
   - Edit mode for modifying values
@@ -69,24 +70,26 @@ Create a JSON config file:
 
 ### Key Controls
 
+**Main Mode (Default):**
+- `↑/↓`: Navigate through available commands
+- `Enter`: Execute selected command
+- Type to filter commands (`/search`, `/add`)
+- `Esc`: Quit application
+
 **Search Mode:**
 - Type to search for keys by prefix
 - `↑/↓`: Navigate through results
 - `Enter`: View selected key details
-- `a/n`: Add new key-value pair
-- `y`: Copy selected key to clipboard
 - `dd`: Delete selected key
-- `Esc`: Quit application
+- `Esc`: Return to main mode
 
 **Detail Mode:**
 - `i`: Enter edit mode
 - `dd`: Delete current key
 - `v`: Switch to view mode
 - `c`: Switch to command mode
-- `y`: Copy value to clipboard
-- `Y`: Copy key to clipboard
 - `hjkl`: Navigate cursor (in command mode)
-- `Esc`: Return to search mode
+- `Esc`: Return to main mode
 
 **Edit Mode:**
 - `i/a/o`: Enter insert mode
@@ -100,8 +103,10 @@ Create a JSON config file:
 
 **Add Mode:**
 - Type to input key (step 1) or value (step 2)
-- `Enter`: Proceed to next step or save
-- `Esc`: Cancel and return to search mode
+- `Tab`: Switch between key and value input
+- `Enter`: Proceed to next step or add newline in value
+- `Ctrl+S`: Save key-value pair
+- `Esc`: Return to main mode
 
 ## Architecture
 
